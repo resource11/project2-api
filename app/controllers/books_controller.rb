@@ -1,4 +1,5 @@
-#
+# index and show are available, because
+# BooksController inherits from OpenReadController
 class BooksController < OpenReadController
   before_action :set_book, only: [:update, :destroy]
 
@@ -18,6 +19,8 @@ class BooksController < OpenReadController
 
   # POST /books
   def create
+    # creates this user's book using the book params
+    # (when instance invoked)
     @book = current_user.books.new(book_params)
 
     if @book.save

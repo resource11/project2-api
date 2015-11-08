@@ -1,0 +1,38 @@
+#  register user
+curl --include --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "a@c.a",
+    "password": "abc123",
+    "password_confirmation": "abc123"
+  }
+}' http://localhost:3000/register
+
+
+# 2 login user
+curl --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "a@c.a",
+    "password": "abc123"
+  }
+}' http://localhost:3000/login
+
+
+
+# 3 logout user
+curl --request DELETE --header "Authorization: Token token=3e0b1f2af799495c3652961a52f80e5a" http://localhost:3000/logout/1
+
+# 4 list books
+curl --header "Authorization: Token token=3e0b1f2af799495c3652961a52f80e5a" http://localhost:3000/users
+
+or
+
+curl http://localhost:3000/users
+
+
+# 5 create a book
+curl --request POST --header "Authorization: Token token=3e0b1f2af799495c3652961a52f80e5a" --header "Content-Type: application/json" -d '{
+  "book": {
+    "title":"The Hold",
+    "isbn":"abc123def456"
+  }
+}'  http://localhost:3000/books

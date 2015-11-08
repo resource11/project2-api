@@ -1,4 +1,5 @@
-#
+# These actions only happen if you're authenticated
+# this is how we set up this controller
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 

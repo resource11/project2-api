@@ -1,10 +1,12 @@
 # Allow READ_ACTIONS access without authentication
 class OpenReadController < ApplicationController
   # Allow unauthenticated access to these actions
+  # If you aren't logged in...
   READ_ACTIONS = [:index, :show]
   skip_before_action :authenticate, only: READ_ACTIONS
 
   # but set current_user if a token is present
+  # if you are logged in, I can tell who you are
   before_action :set_current_user, only: READ_ACTIONS
   def set_current_user
     # for access to authenticate method
