@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   include Authentication
 
   has_many :books
+  has_many :bikes
 end
