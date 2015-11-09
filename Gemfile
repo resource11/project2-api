@@ -25,6 +25,7 @@ group :development do
   # Use pry over irb for rails console
   gem 'pry-rails'
   gem 'byebug'
+  gem 'ffaker'
 end
 
 group :production do

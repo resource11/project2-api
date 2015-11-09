@@ -3,7 +3,12 @@ class BikesController < OpenReadController
 
   # GET /bikes
   def index
-    @bikes = Bike.all
+
+    if current_user
+      @bikes = current_user.bikes
+    else
+      @bikes = Bike.all
+    end
 
     render json: @bikes
   end
