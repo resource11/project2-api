@@ -47,7 +47,7 @@ class BikesController < OpenReadController
   end
 
   def bike_params
-    params.require(:bike).permit(:title, :isbn)
+    params.require(:bike).permit(:title, :description)
   end
 
   private :set_bike, :bike_params

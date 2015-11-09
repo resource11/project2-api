@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :edit]
 
   resources :books, except: [:new, :edit]
-
+  #routes for bikes
   resources :bikes
 end
