@@ -26,6 +26,8 @@ group :development do
   gem 'pry-rails'
   gem 'byebug'
   gem 'ffaker'
+  gem 'hirb'
+  gem 'rename'
 end
 
 group :production do

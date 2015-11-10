@@ -1,8 +1,8 @@
 # These actions only happen if you're authenticated
 # this is how we set up this controller
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :update, :destroy]
-   skip_before_action :authenticate
+  before_action :set_user, only: [:show, :update, :destroy]
+   # skip_before_action :authenticate
 
   # GET /users
   def index

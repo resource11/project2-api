@@ -15,6 +15,7 @@
 # require 'ffaker'
 
 User.delete_all
+Bike.delete_all
 
 5.times do | i |
   puts "Creating User: user#{i}@example.com"
@@ -23,7 +24,7 @@ User.delete_all
 
   rand(1..4).times do |bike_num|
     puts "Creating Bike: bike_#{bike_num}_#{i}"
-    user.bikes.create!(name: "bike_#{bike_num}_#{i}", description: "this is bike number #{i} description for #{user.email}")
+    user.bikes.create!(title: "bike_#{bike_num}_#{i}", description: "this is bike number #{i} description for #{user.email}")
   end
 end
 

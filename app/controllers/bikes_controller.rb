@@ -23,6 +23,8 @@ class BikesController < OpenReadController
   # POST /bikes
   def create
     @bike = current_user.bikes.new(bike_params)
+    @bike.save
+
 
     if @bike.save
       render json: @bike, status: :created, location: @bike
