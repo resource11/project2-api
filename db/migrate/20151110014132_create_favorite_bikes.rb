@@ -1,7 +1,7 @@
-class CreateFavorites < ActiveRecord::Migration
+class CreateFavoriteBikes < ActiveRecord::Migration
   def change
-    create_table :favorites do |t|
-      t.boolean :favorited, default: false
+    create_table :favorite_bikes do |t|
+      t.boolean :favorite, default: false
       t.references :user, index: true, foreign_key: true
       t.references :bike, index: true, foreign_key: true
 

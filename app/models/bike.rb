@@ -6,10 +6,14 @@ class Bike < ActiveRecord::Base
   belongs_to :user
   # belongs_to :owner, source: :user
   #class_name: 'User'
+
+  has_many :favorite_bikes
+  has_many :favorited_by, through: :favorite_bikes, source: :user
+
   # has_many :favorers, through: :favorites,
-  #                     # class_name: 'User',
-  #                     source: :user
-  #                     # foreign_key: 'user_id'
+  #                     class_name: 'User',
+  #                     # source: :user
+  #                     foreign_key: 'user_id'
 
 
   validates :title, presence: true

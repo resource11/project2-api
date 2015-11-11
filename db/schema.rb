@@ -38,16 +38,16 @@ ActiveRecord::Schema.define(version: 20151110145045) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.boolean  "favorited",  default: false
+  create_table "favorite_bikes", force: :cascade do |t|
+    t.boolean  "favorite",   default: false
     t.integer  "user_id"
     t.integer  "bike_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "favorites", ["bike_id"], name: "index_favorites_on_bike_id", using: :btree
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+  add_index "favorite_bikes", ["bike_id"], name: "index_favorite_bikes_on_bike_id", using: :btree
+  add_index "favorite_bikes", ["user_id"], name: "index_favorite_bikes_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "given_name", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20151110145045) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "bikes", "users"
-  add_foreign_key "favorites", "bikes"
-  add_foreign_key "favorites", "users"
+  add_foreign_key "favorite_bikes", "bikes"
+  add_foreign_key "favorite_bikes", "users"
   add_foreign_key "profiles", "users"
 end

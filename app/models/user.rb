@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 
   has_many :bikes
 
- #  has_many :favorited_bikes, through: :favorites,
- #                             # class_name: 'Bike',
- #                             source: :bike
- #                             #, foreign_key: 'bike_id'
+  has_many :favorite_bikes
+  has_many :favorites, through: :favorite_bikes, source: :bike
+                             # class_name: 'Bike',
+                             # foreign_key: 'bike_id'
  # # has_many :favorited_bikes, :through => :favorites, :source => <name>
- #  has_many :favorites
+
 end

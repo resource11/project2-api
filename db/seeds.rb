@@ -14,9 +14,9 @@
 
 # require 'ffaker'
 
-Favorite.delete_all
-User.delete_all
+FavoriteBike.delete_all
 Bike.delete_all
+User.delete_all
 
 
 
@@ -28,16 +28,23 @@ Bike.delete_all
   rand(1..4).times do |bike_num|
     puts "Creating Bike: bike_#{bike_num}_#{i}"
     user.bikes.create!(title: "bike_#{bike_num}_#{i}", description: "this is bike number #{i} description for #{user.email}")
-
-    # rand(1..3).times do |fav_num|
-    #   puts "Creating Favorite: bike_favorite_#{fav_num}_#{i}"
-    #   user.favorited_bikes.create!(favorited_bike: "#{bike.id}")
-    # end
-
   end
+
 end
 
-    # rand(1..3).times do |fav_num|
-    #   puts "Creating Favorite: bike_favorite_#{fav_num}_#{i}"
-    #   user.favorited_bikes.create!(favorited: true)
-    # end
+b1 = Bike.last
+puts "#{b1.id}"
+u1 = Bike.last
+favorite_bike = FavoriteBike.create!()
+u1.favorite_bikes << favorite_bike
+  puts "favorite_bike is #{favorite_bike.id}"
+
+  # favorite_bike = FavoriteBike.create!(favorite: true, user: "#{user(id)}", bike: "#{bikes(id)}")
+  # puts "favorite_bike is #{favorite_bike}"
+
+  # 3.times do |fav_bike|
+  #   puts "Creating Favorite_bike: bike_favorite_#{favorite_bike}_#{fav_bike}"
+  #   favorite_bike.create!(favorite: true)
+  # end
+
+
