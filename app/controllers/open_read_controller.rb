@@ -7,7 +7,9 @@ class OpenReadController < ApplicationController
 
   # but set current_user if a token is present
   # if you are logged in, I can tell who you are
-  before_action :set_current_user, only: READ_ACTIONS
+  before_action :set_current_user
+  # , only: READ_ACTIONS
+
   def set_current_user
     # for access to authenticate method
     t = ActionController::HttpAuthentication::Token
