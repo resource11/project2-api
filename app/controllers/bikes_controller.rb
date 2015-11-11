@@ -25,7 +25,6 @@ class BikesController < OpenReadController
     @bike = current_user.bikes.new(bike_params)
     @bike.save
 
-
     if @bike.save
       render json: @bike, status: :created, location: @bike
     else
@@ -40,6 +39,7 @@ class BikesController < OpenReadController
     else
       render json: @bike.errors, status: :unprocessable_entity
     end
+
   end
 
   # DELETE /bikes/1
@@ -54,7 +54,7 @@ class BikesController < OpenReadController
   end
 
   def bike_params
-    params.require(:bike).permit(:title, :description)
+    params.require(:bike).permit(:title, :description, :poster)
   end
 
   private :set_bike, :bike_params
