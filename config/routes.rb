@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :profiles, except: [:new, :edit]
 
-  resources :favorites, except: [:new, :edit]
+  resources :favorite_bikes, except: [:new, :edit]
 
 end
 

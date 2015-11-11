@@ -1,5 +1,4 @@
 class FavoriteBikesController < OpenReadController
-  before_action :favorite
 
   # GET /favorite_bikes
   def index
