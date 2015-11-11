@@ -21,5 +21,6 @@ u1.id = User.last.id
 b1.id = Bike.last.id
 favorite_bike = FavoriteBike.create!(favorite: true, user_id: u1.id, bike_id: b1.id)
 u1.favorite_bikes << favorite_bike
+u1.save
 puts "favorite_bike is #{favorite_bike.id}"
 
