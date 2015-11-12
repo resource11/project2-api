@@ -11,7 +11,7 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 # 2 login user
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "k@k.com",
+    "email": "user1@example.com",
     "password": "a"
   }
 }' http://localhost:3000/login
@@ -19,20 +19,37 @@ curl --request POST --header "Content-Type: application/json" -d '{
 
 
 # 3 logout user
-curl --request DELETE --header "Authorization: Token token=42a36fc969548c1a43b6a1b40aec614c" http://localhost:3000/logout/1
+curl --request DELETE --header "Authorization: Token token=fd91384fe88dcb8f34d14f3e2f96961f" http://localhost:3000/logout/1
 
-# 4 list books
-curl --header "Authorization: Token token=42a36fc969548c1a43b6a1b40aec614c" http://localhost:3000/users
+# 4 list users
+curl --header "Authorization: Token token=fd91384fe88dcb8f34d14f3e2f96961f" http://localhost:3000/users
 
 or
 
 curl http://localhost:3000/users
 
 
-# 5 create a book
-curl --request POST --header "Authorization: Token token=42a36fc969548c1a43b6a1b40aec614c" --header "Content-Type: application/json" -d '{
-  "book": {
+# 5 create a bike
+curl --request POST --header "Authorization: Token token=0d4ffe67da0618bb086523543d6c2dcc" --header "Content-Type: application/json" -d '{
+  "bike": {
     "title":"The Hold",
-    "isbn":"abc123def456"
+    "description":"abc123def456"
   }
-}'  http://localhost:3000/books
+}'  http://localhost:3000/bikes
+
+# 5 update a book
+curl --request PATCH --header "Authorization: Token token=0d4ffe67da0618bb086523543d6c2dcc" --header "Content-Type: application/json" -d '{
+  "bike": {
+    "title":"Now Not The Hold",
+    "description":"abc123def456"
+  }
+}'  http://localhost:3000/bikes/16
+
+
+curl --request POST --header "Authorization: Token token=ae4e003d561288bdfb540b62aec8800f" --header "Content-Type: application/json" -d '{
+  "favorite_bike": {
+    "favorite": true,
+    "user_id": 3,
+    "bike_id": 4
+  }
+}'  http://localhost:3000/favorite_bikes

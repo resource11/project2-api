@@ -31,7 +31,7 @@ class FavoriteBikesController < OpenReadController
 
   # PATCH /favorite_bikes/1
   def update
-    if @favorite_bike.update(favorite_bike_params)
+    if @favorite_bikes.update(favorite_bike_params)
       head :no_content
     else
       render json: @favorite_bike.errors, status: :unprocessable_entity
