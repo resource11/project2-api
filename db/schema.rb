@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20151110145045) do
   end
 
   create_table "favorite_bikes", force: :cascade do |t|
-    t.boolean  "favorite",   default: false
+    t.string   "favorite",   default: "f"
     t.integer  "user_id"
     t.integer  "bike_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "favorite_bikes", ["bike_id"], name: "index_favorite_bikes_on_bike_id", using: :btree
