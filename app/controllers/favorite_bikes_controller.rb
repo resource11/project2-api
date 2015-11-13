@@ -31,8 +31,10 @@ class FavoriteBikesController < OpenReadController
 
   # PATCH /favorite_bikes/1
   def update
+    @favorite_bike = FavoriteBike.find(params[:id])
     if @favorite_bike.update(favorite_bike_params)
-      head :no_content
+      render json: @favorite_bike
+      # head :no_content
     else
       render json: @favorite_bike.errors, status: :unprocessable_entity
     end
@@ -40,7 +42,7 @@ class FavoriteBikesController < OpenReadController
 
   # DELETE /favorites/1
   def destroy
-    current_user.favorite_bikes.destroy(@bike)
+    @favorite_bikes.destroy(@bike)
 
     head :no_content
   end
