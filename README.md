@@ -14,7 +14,7 @@ The database contains 3 tables:
 * bikes
 * favorite_bikes
 
-![ERD diagram]https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0)
+![ERD diagram](https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0)
 
 #Planning
 I took a decent amount of time thinking about my models and how they related before I started building the backend. Once a structure was determined, I consulted many individuals to confirm that my models and rationale was sound.
