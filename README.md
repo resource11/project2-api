@@ -9,10 +9,11 @@ SillySpeed Me! is an app designed to allow the user to list a bike for sale and 
 
 ## Database
 
-The database contains 3 tables:
+The database contains 4 tables:
 * users
 * bikes
 * favorite_bikes
+* profiles (to be implemented in the future)
 
 [ERD diagram](https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0)
 
