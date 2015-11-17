@@ -1,64 +1,41 @@
+# SillySpeed Me Backend
+Ruby on Rails backend for SillySpeed Me App
+* [Front end repository](https://github.com/resource11/ssme_frontend/tree/gh-pages)
+* [Deployed site](http://resource11.github.io/ssme_frontend)
+* [Deployed backend](https://mighty-lowlands-8515.herokuapp.com)
 
-# User authentication
+##Project Overview
+SillySpeed Me! is an app designed to allow the user to list a bike for sale and favorite a bike they'd like to buy. The target audience is those who love to race cyclocross, particularly on a singlespeed (aka, a SillySpeed) bike!.
 
-## Register
+## Database
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
+The database contains 3 tables:
+* users
+* bikes
+* favorite_bikes
 
-## Login
+![ERD diagram]https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0)
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
+#Planning
+I took a decent amount of time thinking about my models and how they related before I started building the backend. Once a structure was determined, I consulted many individuals to confirm that my models and rationale was sound.
 
-## Logout
+This project was a great first step for learning how routes, controllers and serializers worked with each other. I believe there's much more to learn here... especially if my app becomes more robust in future iterations!
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+##What I learned
+- How routes and controllers work.
+- How serializers work -- especially with respect to the 'has_many' property.
+- Active Record Objects: just scratched the surface with respect to what they can accomplish.
 
-# Users
+##Challenges
+Learning how to use controllers in more than the basic CRUD actions is definitely an area which I'd like to delve more deeply. Figuring out how to use some clever programming to gather specific information when a request is made from the client definitely took a bit of trial and error!
 
-## List
+## Next Steps
+- Going forward, I'd love to change up how a favorite is shown on the app (a graphical toggle on the 'all bikes' list, in addition to the current 'favorited bikes' listing shown when a user is logged in.
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
 
-# Books
 
-## List
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
 
-**OR**
 
-```
-curl http://localhost:3000/users
-```
 
-## Create
 
-```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
-  }
-}'  http://localhost:3000/books
-```
