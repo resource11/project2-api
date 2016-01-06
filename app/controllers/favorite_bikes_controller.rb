@@ -5,6 +5,8 @@ class FavoriteBikesController < OpenReadController
 
     if current_user
       @favorite_bikes = current_user.favorite_bikes
+    else
+      @favorite_bikes = FavoriteBike.all
     end
 
     render json: @favorite_bikes
@@ -42,7 +44,8 @@ class FavoriteBikesController < OpenReadController
 
   # DELETE /favorites/1
   def destroy
-    @favorite_bikes.destroy(@bike)
+    # @favorite_bikes.destroy(@bike)
+    @favorite_bikes.destroy
 
     head :no_content
   end
