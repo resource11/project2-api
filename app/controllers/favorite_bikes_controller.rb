@@ -1,5 +1,5 @@
 class FavoriteBikesController < OpenReadController
-
+  before_action :set_favorite_bike, only: [:update, :destroy]
   # GET /favorite_bikes
   def index
 
@@ -45,13 +45,19 @@ class FavoriteBikesController < OpenReadController
   # DELETE /favorites/1
   def destroy
     # @favorite_bikes.destroy(@bike)
-    @favorite_bikes.destroy
+    @favorite_bike.destroy
 
     head :no_content
+  end
+
+  def set_favorite_bike
+    @favorite_bike = current_user.favorite_bikes.find(params[:id])
   end
 
   def favorite_bike_params
     params.require(:favorite_bike).permit(:favorite, :user_id, :bike_id)
   end
+
+  private :set_favorite_bike, :favorite_bike_params
 
 end
